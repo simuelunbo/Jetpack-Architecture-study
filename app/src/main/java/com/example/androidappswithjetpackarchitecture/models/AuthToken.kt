@@ -10,7 +10,7 @@ import com.google.gson.annotations.SerializedName
 
 @Entity(
     tableName = "auth_token",
-    foreignKeys = [
+    foreignKeys = [ // 외래키
         ForeignKey(
             entity = AccountProperties::class, // parent class
             parentColumns = ["pk"],

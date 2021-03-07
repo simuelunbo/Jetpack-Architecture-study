@@ -1,10 +1,10 @@
 package com.example.androidappswithjetpackarchitecture.ui.auth
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.example.androidappswithjetpackarchitecture.R
+import com.example.androidappswithjetpackarchitecture.ui.BaseActivity
 
-class AuthActivity : AppCompatActivity() {
+class AuthActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auth)

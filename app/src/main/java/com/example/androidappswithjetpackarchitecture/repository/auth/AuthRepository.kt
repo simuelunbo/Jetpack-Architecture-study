@@ -4,8 +4,10 @@ import com.example.androidappswithjetpackarchitecture.api.auth.OpenApiAuthServic
 import com.example.androidappswithjetpackarchitecture.persistence.AccountPropertiesDao
 import com.example.androidappswithjetpackarchitecture.persistence.AuthTokenDao
 import com.example.androidappswithjetpackarchitecture.session.SessionManager
+import javax.inject.Inject
 
 class AuthRepository
+@Inject
 constructor(
     val authTokenDao: AuthTokenDao,
     val accountPropertiesDao: AccountPropertiesDao,

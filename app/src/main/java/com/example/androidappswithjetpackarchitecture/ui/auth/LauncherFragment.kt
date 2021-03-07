@@ -1,6 +1,7 @@
 package com.example.androidappswithjetpackarchitecture.ui.auth
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.androidappswithjetpackarchitecture.R
 
-class LauncherFragment : Fragment() {
+class LauncherFragment : BaseAuthFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,6 +22,8 @@ class LauncherFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        Log.d(TAG, "LauncherFragment: ${viewModel.hashCode()}")
 
         val register = view.findViewById<TextView>(R.id.register)
         register.setOnClickListener {
