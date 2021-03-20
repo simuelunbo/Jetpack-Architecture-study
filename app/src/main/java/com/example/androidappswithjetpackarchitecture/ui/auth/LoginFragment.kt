@@ -5,8 +5,9 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import com.example.androidappswithjetpackarchitecture.R
+import com.example.androidappswithjetpackarchitecture.util.GenericApiResponse
 
 class LoginFragment : BaseAuthFragment() {
 
@@ -23,6 +24,23 @@ class LoginFragment : BaseAuthFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         Log.d(TAG, "LoginFragment: ${viewModel.hashCode()}")
+
+        viewModel.testLogin().observe(viewLifecycleOwner, Observer {
+            when (it) {
+
+                is GenericApiResponse.ApiSuccessResponse -> {
+                    Log.d(TAG, "Login Response: ${it.body}")
+                }
+
+                is GenericApiResponse.ApiErrorResponse -> {
+                    Log.d(TAG, "Login Response: ${it.errorMessage}")
+                }
+
+                is GenericApiResponse.ApiEmptyResponse -> {
+                    Log.d(TAG, "Login Response: Empty Response")
+                }
+            }
+        })
     }
 
 }
