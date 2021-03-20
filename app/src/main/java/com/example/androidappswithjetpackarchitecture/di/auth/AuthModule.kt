@@ -8,16 +8,15 @@ import com.example.androidappswithjetpackarchitecture.session.SessionManager
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
+import retrofit2.create
 
 @Module
 class AuthModule {
 
-    // TEMPORARY
     @AuthScope
     @Provides
-    fun provideFakeApiService(): OpenApiAuthService {
-        return Retrofit.Builder()
-            .baseUrl("https://open-api.xyz")
+    fun provideFakeApiService(retrofitBuilder: Retrofit.Builder): OpenApiAuthService {
+        return retrofitBuilder
             .build()
             .create(OpenApiAuthService::class.java)
     }
